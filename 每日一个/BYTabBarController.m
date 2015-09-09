@@ -27,8 +27,8 @@
     PictureViewController *pictureController = [[PictureViewController alloc] init];
     SimpleTextViewController *aboutController = [[SimpleTextViewController alloc] init];
     
-    filmController.view.backgroundColor = [UIColor whiteColor];
-    articleController.view.backgroundColor = [UIColor whiteColor];
+    
+//    articleController.view.backgroundColor = [UIColor whiteColor];
     
     
     [UIImage imageNamed:@"home_personal"];
