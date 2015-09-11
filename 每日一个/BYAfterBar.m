@@ -9,6 +9,7 @@
 #import "BYAfterBar.h"
 #import "BYCriticContent.h"
 #import "NSString+Extension.h"
+#import "BYNovelContent.h"
 
 #define Margin 10
 
@@ -37,10 +38,12 @@
 }
 
 
+
+
 /**
  *  传入模型数据，并且给控件赋值
  *
- *  @param criticContent <#criticContent description#>
+ *  @param criticContent 影评界面
  */
 - (void)setCriticContent:(BYCriticContent *)criticContent
 {
@@ -60,6 +63,27 @@
     
 }
 
+/**
+ *  显示文章界面的时候使用
+ *
+ *  @param novelContent <#novelContent description#>
+ */
+- (void)setNovelContent:(BYNovelContent *)novelContent
+{
+    _novelContent = novelContent;
+    self.author.text = novelContent.author;
+    CGSize boundSize = CGSizeMake(self.width - 2 *Margin, CGFLOAT_MAX);
+    CGSize authorSize = [novelContent.author sizeWithTextFont:self.author.font Size:boundSize];
+    self.author.size = authorSize;
+    
+    
+    self.authorBrief.text = novelContent.authorbrief;
+    CGSize authorBriefSize = [novelContent.authorbrief sizeWithTextFont:self.authorBrief.font Size:boundSize];
+    self.authorBrief.size = authorBriefSize;
+    
+    
+    [self setNeedsLayout];
+}
 /**
  *  作者label
  */

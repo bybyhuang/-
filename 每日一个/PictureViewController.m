@@ -7,19 +7,69 @@
 //
 
 #import "PictureViewController.h"
+#import "BYHttpTool.h"
+#import "BYNovel.h"
+#import "BYPictureList.h"
 
 @interface PictureViewController ()
 
+@property (nonatomic,weak)BYPictureList *pictureList;
+
+@property (nonatomic,strong)NSMutableArray *pictureArray;
 @end
 
 @implementation PictureViewController
 
+
+/**
+ *  懒加载
+ *
+ *  @return <#return value description#>
+ */
+- (NSMutableArray *)pictureArray
+{
+    if(_pictureArray == nil)
+    {
+        _pictureArray = [[NSMutableArray alloc] init];
+        
+    }
+    return _pictureArray;
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    //初始化图片列表
+    [self setUpPictureList];
     
-    NSLog(@"123123");
+    //http://api.shigeten.net/api/Diagram/GetDiagramList
+    //http://api.shigeten.net/api/Diagram/GetDiagramContent?id=10260
+    NSString *urlString = @"http://api.shigeten.net/api/Diagram/GetDiagramList";
+    [BYHttpTool GET:urlString parameters:nil success:^(id response) {
+        for (NSDictionary *dict in response[@"result"]) {
+            BYNovel *novel = [BYNovel novelWithDict:dict];
+            [self.pictureArray addObject:novel];
+            
+        }
+        
+        self.pictureList.pictureArray = self.pictureArray;
+        
+    } failure:^(NSError *error) {
+        NSLog(@"获取出错");
+    }];
+    
 }
+
+- (void)setUpPictureList
+{
+    BYPictureList *pictureList = [[BYPictureList alloc] init];
+    [self.view addSubview:pictureList];
+    self.pictureList = pictureList;
+    pictureList.frame = self.view.bounds;
+}
+
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

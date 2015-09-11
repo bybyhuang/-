@@ -110,6 +110,9 @@
     afterBar.height = 50;
 }
 
+/**
+ *  添加分享栏
+ */
 - (void)setUpShareBar
 {
     
@@ -344,7 +347,7 @@
     
     self.afterBar.x = 0;
     self.afterBar.y = CGRectGetMaxY(self.image5.frame)+10;
-    self.scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.afterBar.frame) +120);
+    self.scrollView.contentSize = CGSizeMake(0, CGRectGetMaxY(self.afterBar.frame) + 128);
     
 }
 

@@ -20,7 +20,7 @@
 {
     if(self = [super initWithFrame:frame])
     {
-        self.backgroundColor = [UIColor redColor];
+        
         UIScrollView *scrollView = [[UIScrollView alloc] init];
         [self addSubview:scrollView];
         self.scrollView = scrollView;
@@ -44,7 +44,7 @@
     
     for (int i=0; i<novels.count; i++) {
         BYNovelView *novelView = [[BYNovelView alloc] init];
-        novelView.backgroundColor = RandomRGB;
+        novelView.backgroundColor = [UIColor whiteColor];
         [self.scrollView addSubview:novelView];
         
         //让第一个文章的View先加载数据

@@ -85,8 +85,26 @@
     
     self.timeLabel.text = timeString;
     
+
     
+}
+
+/**
+ *  设置发行的时间
+ *
+ *  @param publishTime <#publishTime description#>
+ */
+- (void)setPublishtime:(NSInteger)publishtime
+{
+    _publishtime = publishtime;
     
+    NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
+    fmt.dateFormat = @"yyyy-MM-dd";
+    
+    NSDate *date = [NSDate dateWithTimeIntervalSince1970:(publishtime -621355968000000000)/10000000];
+    NSString *timeString = [fmt stringFromDate:date];
+    
+    self.timeLabel.text = timeString;
     
 }
 

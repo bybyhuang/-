@@ -31,6 +31,8 @@
 
 @property (nonatomic,copy) NSString *summary;
 
+
+
 + (instancetype)novelWithDict:(NSDictionary *)dict;
 
 

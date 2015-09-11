@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class BYCriticContent;
+@class BYCriticContent,BYNovelContent;
 @interface BYAfterBar : UIView
 
 @property (nonatomic,strong)BYCriticContent *criticContent;
+
+@property (nonatomic,strong)BYNovelContent *novelContent;
 
 @end

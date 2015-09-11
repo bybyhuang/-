@@ -32,6 +32,7 @@
 		8F96C2EC1BA0657700466A54 /* BYNovel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F96C2EB1BA0657700466A54 /* BYNovel.m */; };
 		8F96C2F31BA06A4300466A54 /* BYHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F96C2F21BA06A4300466A54 /* BYHttpTool.m */; };
 		8F96C2F61BA07D2100466A54 /* BYNovelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F96C2F51BA07D2100466A54 /* BYNovelView.m */; };
+		8FA7B5FB1BA31FF2002AC883 /* BYPictureList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA7B5FA1BA31FF2002AC883 /* BYPictureList.m */; };
 		8FBFE9C91B7C3ABC00CDE9AD /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBFE9A91B7C3ABC00CDE9AD /* MKAnnotationView+WebCache.m */; };
 		8FBFE9CA1B7C3ABC00CDE9AD /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBFE9AB1B7C3ABC00CDE9AD /* NSData+ImageContentType.m */; };
 		8FBFE9CB1B7C3ABC00CDE9AD /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBFE9AD1B7C3ABC00CDE9AD /* SDImageCache.m */; };
@@ -123,6 +124,8 @@
 		8F96C2F21BA06A4300466A54 /* BYHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYHttpTool.m; sourceTree = "<group>"; };
 		8F96C2F41BA07D2100466A54 /* BYNovelView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYNovelView.h; sourceTree = "<group>"; };
 		8F96C2F51BA07D2100466A54 /* BYNovelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYNovelView.m; sourceTree = "<group>"; };
+		8FA7B5F91BA31FF2002AC883 /* BYPictureList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYPictureList.h; sourceTree = "<group>"; };
+		8FA7B5FA1BA31FF2002AC883 /* BYPictureList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYPictureList.m; sourceTree = "<group>"; };
 		8FBFE9A81B7C3ABC00CDE9AD /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		8FBFE9A91B7C3ABC00CDE9AD /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		8FBFE9AA1B7C3ABC00CDE9AD /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -313,6 +316,8 @@
 		8F389EDD1B7AF5A000165320 /* Picture */ = {
 			isa = PBXGroup;
 			children = (
+				8FA7B5F81BA31FDA002AC883 /* View */,
+				8FA7B5F71BA31EB8002AC883 /* Model */,
 				8F389EDF1B7AF60100165320 /* Controller */,
 			);
 			name = Picture;
@@ -454,6 +459,22 @@
 				8F96C2F21BA06A4300466A54 /* BYHttpTool.m */,
 			);
 			name = Tool;
+			sourceTree = "<group>";
+		};
+		8FA7B5F71BA31EB8002AC883 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		8FA7B5F81BA31FDA002AC883 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8FA7B5F91BA31FF2002AC883 /* BYPictureList.h */,
+				8FA7B5FA1BA31FF2002AC883 /* BYPictureList.m */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		8FBFE9A71B7C3ABC00CDE9AD /* SDWebImage */ = {
@@ -627,6 +648,7 @@
 				8F389EDB1B7AF57100165320 /* FilmViewController.m in Sources */,
 				8FBFE9CF1B7C3ABC00CDE9AD /* SDWebImageDownloaderOperation.m in Sources */,
 				8F389F091B7B1AA700165320 /* AFSecurityPolicy.m in Sources */,
+				8FA7B5FB1BA31FF2002AC883 /* BYPictureList.m in Sources */,
 				8FFE72281BA10C9500B85727 /* BYNovelContent.m in Sources */,
 				8F389EEE1B7B186A00165320 /* BYCritic.m in Sources */,
 				8FBFE9D11B7C3ABC00CDE9AD /* SDWebImagePrefetcher.m in Sources */,

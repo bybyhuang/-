@@ -13,4 +13,6 @@
 
 @property (nonatomic,strong)BYCriticContent *criticContent;
 
+@property (nonatomic,assign) NSInteger publishtime;
+
 @end
