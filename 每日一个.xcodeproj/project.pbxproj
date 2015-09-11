@@ -57,6 +57,7 @@
 		8FF55B6E1B7F15A80080E54E /* BYAfterBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF55B691B7F15A80080E54E /* BYAfterBar.m */; };
 		8FF55B711B7F15B70080E54E /* BYCriticContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF55B701B7F15B70080E54E /* BYCriticContent.m */; };
 		8FF55B741B7F15DA0080E54E /* NSString+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF55B731B7F15DA0080E54E /* NSString+Extension.m */; };
+		8FFE72281BA10C9500B85727 /* BYNovelContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FFE72271BA10C9500B85727 /* BYNovelContent.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -171,6 +172,8 @@
 		8FF55B701B7F15B70080E54E /* BYCriticContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYCriticContent.m; sourceTree = "<group>"; };
 		8FF55B721B7F15DA0080E54E /* NSString+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Extension.h"; sourceTree = "<group>"; };
 		8FF55B731B7F15DA0080E54E /* NSString+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Extension.m"; sourceTree = "<group>"; };
+		8FFE72261BA10C9500B85727 /* BYNovelContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYNovelContent.h; sourceTree = "<group>"; };
+		8FFE72271BA10C9500B85727 /* BYNovelContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYNovelContent.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -438,6 +441,8 @@
 			children = (
 				8F96C2EA1BA0657700466A54 /* BYNovel.h */,
 				8F96C2EB1BA0657700466A54 /* BYNovel.m */,
+				8FFE72261BA10C9500B85727 /* BYNovelContent.h */,
+				8FFE72271BA10C9500B85727 /* BYNovelContent.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -622,6 +627,7 @@
 				8F389EDB1B7AF57100165320 /* FilmViewController.m in Sources */,
 				8FBFE9CF1B7C3ABC00CDE9AD /* SDWebImageDownloaderOperation.m in Sources */,
 				8F389F091B7B1AA700165320 /* AFSecurityPolicy.m in Sources */,
+				8FFE72281BA10C9500B85727 /* BYNovelContent.m in Sources */,
 				8F389EEE1B7B186A00165320 /* BYCritic.m in Sources */,
 				8FBFE9D11B7C3ABC00CDE9AD /* SDWebImagePrefetcher.m in Sources */,
 				8FBFE9D51B7C3ABC00CDE9AD /* UIImage+WebP.m in Sources */,

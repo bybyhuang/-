@@ -9,6 +9,7 @@
 #import "BYCriticList.h"
 #import "BYFilmView.h"
 
+
 @interface BYCriticList()<UIScrollViewDelegate>
 
 @property (nonatomic,weak)UIScrollView *scrollView;
@@ -69,7 +70,7 @@
     
     NSInteger count = self.critics.count;
     
-    NSLog(@"count%ld",count);
+//    NSLog(@"count%ld",count);
     //设置scrollView可以滚动的宽高
     self.scrollView.contentSize = CGSizeMake(count * self.scrollView.width, 0);
     
@@ -89,8 +90,8 @@
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     NSInteger currentPage = ((scrollView.contentOffset.x +self.scrollView.width /2 )/self.scrollView.width);
+    
 
-//    NSLog(@"123%d",currentPage);
     //根据页数来赋值模型
     if(self.scrollView.subviews.count>0)
     {

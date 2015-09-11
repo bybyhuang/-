@@ -76,7 +76,7 @@
 {
     _criticContent = criticContent;
     
-    NSLog(@"%ld",criticContent.publishtime -621355968000000000);
+//    NSLog(@"%ld",criticContent.publishtime -621355968000000000);
     NSDateFormatter *fmt = [[NSDateFormatter alloc] init];
     fmt.dateFormat = @"yyyy-MM-dd";
     

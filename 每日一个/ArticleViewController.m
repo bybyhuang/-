@@ -42,7 +42,7 @@
     //初始化NovelList
     [self setUpNovelList];
     
-    NSLog(@"加载article");
+    
     NSString *urlString = [NSString stringWithFormat:@"http://api.shigeten.net/api/Novel/GetNovelList"];
 
     

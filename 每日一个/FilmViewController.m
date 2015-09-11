@@ -66,7 +66,7 @@
 
 - (void)setUpListView
 {
-    NSLog(@"%f", self.navigationItem.titleView.height);
+//    NSLog(@"%f", self.navigationItem.titleView.height);
     
     BYCriticList *listView = [[BYCriticList alloc] init];
     listView.frame = self.view.bounds;
