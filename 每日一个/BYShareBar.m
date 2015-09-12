@@ -8,6 +8,7 @@
 
 #import "BYShareBar.h"
 #import "BYCriticContent.h"
+#import "UMSocial.h"
 
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 
@@ -64,12 +65,42 @@
 
 - (void)setUpMoreBtn
 {
+    
     UIButton *moreBtn = [[UIButton alloc] init];
     [self addSubview:moreBtn];
     [moreBtn setImage:[UIImage imageNamed:@"more"] forState:UIControlStateNormal];
     [moreBtn setImage:[UIImage imageNamed:@"more_selected"] forState:UIControlStateHighlighted];
     moreBtn.size = moreBtn.currentImage.size;
+    
+    [moreBtn addTarget:self action:@selector(clickMoreBtn:) forControlEvents:UIControlEventTouchUpInside];
+    
     self.moreBtn = moreBtn;
+}
+
+
+- (void)clickMoreBtn:(UIButton *)btn
+{
+    
+    
+    [UMSocialSnsService presentSnsIconSheetView:[self appRootViewController] appKey:@"55f4273e67e58e3f7c000094" shareText:@"1211" shareImage:[UIImage imageNamed:@"avatar"] shareToSnsNames:[NSArray arrayWithObjects:UMShareToQQ,UMShareToQzone,UMShareToSina,UMShareToWechatTimeline,UMShareToWechatSession, nil] delegate:nil];
+    
+    
+    
+}
+
+/**
+ *  获取所在的控制器
+ *
+ *  @return <#return value description#>
+ */
+- (UIViewController *)appRootViewController
+{
+    UIViewController *appRootVC = [UIApplication sharedApplication].keyWindow.rootViewController;
+    UIViewController *topVC = appRootVC;
+    while (topVC.presentedViewController) {
+        topVC = topVC.presentedViewController;
+    }
+    return topVC;
 }
 
 - (void)setCriticContent:(BYCriticContent *)criticContent

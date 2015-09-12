@@ -15,4 +15,8 @@
 
 @property (nonatomic,strong)BYNovelContent *novelContent;
 
+@property (nonatomic,copy) NSString *authorString;
+
+@property (nonatomic,copy) NSString *authorBriefString;
+
 @end

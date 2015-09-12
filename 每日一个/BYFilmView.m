@@ -14,6 +14,7 @@
 #import "NSString+Extension.h"
 #import "BYShareBar.h"
 #import "BYAfterBar.h"
+#import "UMSocial.h"
 
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -117,6 +118,9 @@
 {
     
     BYShareBar *shareBar = [[BYShareBar alloc] init];
+    
+    //设置分享栏的代理
+//    shareBar.delegate = self;
     [self.scrollView addSubview:shareBar];
     self.shareBar = shareBar;
     shareBar.width = ScreenWidth;
@@ -368,4 +372,12 @@
     
     return text;
 }
+
+#pragma BYShareBar代理方法的实现
+//
+//- (void)shareBarUMShare:(BYShareBar *)sharBar ClickBtn:(UIButton *)btn
+//{
+//    [UMSocialSnsService presentSnsIconSheetView:self appKey:@"55f4273e67e58e3f7c000094" shareText:@"1211" shareImage:[UIImage imageNamed:@"avatar"] shareToSnsNames:[NSArray arrayWithObjects:UMShareToQQ,UMShareToQzone,UMShareToSina,UMShareToWechatTimeline,UMShareToWechatSession, nil] delegate:nil];
+//}
+
 @end

@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "BYTabBarController.h"
+#import "UMSocial.h"
 
 @interface AppDelegate ()
 
@@ -28,6 +29,10 @@
     
     
     [self.window makeKeyAndVisible];
+    
+    //设置友盟分享
+    [UMSocialData setAppKey:@"55f4273e67e58e3f7c000094"];
+    
     
     return YES;
 }

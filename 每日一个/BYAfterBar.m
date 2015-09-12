@@ -40,6 +40,31 @@
 
 
 
+- (void)setAuthorString:(NSString *)authorString
+{
+    _authorString = authorString;
+    
+    self.author.text = authorString;
+    CGSize boundSize = CGSizeMake(self.width - 2 *Margin, CGFLOAT_MAX);
+    CGSize authorSize = [authorString sizeWithTextFont:self.author.font Size:boundSize];
+    self.author.size = authorSize;
+    
+    
+}
+
+- (void)setAuthorBriefString:(NSString *)authorBriefString
+{
+    _authorBriefString = authorBriefString;
+    
+    CGSize boundSize = CGSizeMake(self.width - 2 *Margin, CGFLOAT_MAX);
+    self.authorBrief.text = authorBriefString;
+    CGSize authorBriefSize = [authorBriefString sizeWithTextFont:self.authorBrief.font Size:boundSize];
+    self.authorBrief.size = authorBriefSize;
+    
+    
+    [self setNeedsLayout];
+    
+}
 /**
  *  传入模型数据，并且给控件赋值
  *

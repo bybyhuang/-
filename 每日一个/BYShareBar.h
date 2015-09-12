@@ -8,8 +8,21 @@
 
 #import <UIKit/UIKit.h>
 
-@class BYCriticContent;
+@class BYCriticContent,BYShareBar;
+
+//@protocol BYShareBarDelegate <NSObject>
+//
+//- (void)shareBarUMShare:(BYShareBar *)sharBar ClickBtn:(UIButton *)btn;
+//
+//@end
+
 @interface BYShareBar : UIView
+
+/**
+ *  代理
+ */
+
+//@property (nonatomic,weak)id<BYShareBarDelegate> delegate;
 
 @property (nonatomic,strong)BYCriticContent *criticContent;
 
