@@ -2,11 +2,12 @@
 //  AboutViewController.m
 //  每日一个
 //
-//  Created by huangbaoyu on 15/8/12.
+//  Created by huangbaoyu on 15/11/2.
 //  Copyright (c) 2015年 huangbaoyu. All rights reserved.
 //
 
 #import "AboutViewController.h"
+#import "AboutViewCell.h"
 
 @interface AboutViewController ()
 
@@ -16,7 +17,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    self.tableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +26,51 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - Table view data source
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+#warning Potentially incomplete method implementation.
+    // Return the number of sections.
+    return 1;
 }
-*/
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+#warning Incomplete method implementation.
+    // Return the number of rows in the section.
+    return 4;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+    AboutViewCell *cell = [AboutViewCell abountViewCellWithTableView:tableView WithIdentifier:@"about"];
+    [UIImage imageNamed:@"setting_aboutus"];
+    switch (indexPath.row) {
+        case 0:
+            [cell aboutViewCellWithLeftImage:@"setting_favorite" title:@"我的收藏"];
+            break;
+        case 1:
+            [cell aboutViewCellWithLeftImage:@"setting_font" title:@"字体设置"];
+            break;
+        case 2:
+            [cell aboutViewCellWithLeftImage:@"setting_aboutus" title:@"关于我们"];
+            break;
+        case 3:
+            [cell aboutViewCellWithLeftImage:@"setting_feedback" title:@"意见反馈"];
+            break;
+        default:
+            break;
+    }
+    
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 62;
+}
+
+
 
 @end

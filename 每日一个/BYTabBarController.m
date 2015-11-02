@@ -25,7 +25,7 @@
     FilmViewController *filmController = [[FilmViewController alloc] init];
     ArticleViewController *articleController = [[ArticleViewController alloc] init];
     PictureViewController *pictureController = [[PictureViewController alloc] init];
-    SimpleTextViewController *aboutController = [[SimpleTextViewController alloc] init];
+    SimpleTextViewController *aboutController = [[AboutViewController alloc] init];
     
     
 //    articleController.view.backgroundColor = [UIColor whiteColor];

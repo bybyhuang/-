@@ -16,7 +16,6 @@
 		8F389EDB1B7AF57100165320 /* FilmViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F389EDA1B7AF57100165320 /* FilmViewController.m */; };
 		8F389EE21B7AF62000165320 /* ArticleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F389EE11B7AF62000165320 /* ArticleViewController.m */; };
 		8F389EE51B7AF62F00165320 /* PictureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F389EE41B7AF62F00165320 /* PictureViewController.m */; };
-		8F389EEB1B7AF66100165320 /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F389EEA1B7AF66100165320 /* AboutViewController.m */; };
 		8F389EEE1B7B186A00165320 /* BYCritic.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F389EED1B7B186A00165320 /* BYCritic.m */; };
 		8F389F051B7B1AA700165320 /* AFHTTPRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F389EF31B7B1AA700165320 /* AFHTTPRequestOperation.m */; };
 		8F389F061B7B1AA700165320 /* AFHTTPRequestOperationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F389EF51B7B1AA700165320 /* AFHTTPRequestOperationManager.m */; };
@@ -28,6 +27,9 @@
 		8F389F0C1B7B1AA700165320 /* AFURLResponseSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F389F021B7B1AA700165320 /* AFURLResponseSerialization.m */; };
 		8F389F0D1B7B1AA700165320 /* AFURLSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F389F041B7B1AA700165320 /* AFURLSessionManager.m */; };
 		8F389F181B7B2BB400165320 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F389F171B7B2BB400165320 /* UIView+Extension.m */; };
+		8F9332191BE6F04A00A4CB7C /* AboutViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9332181BE6F04A00A4CB7C /* AboutViewController.m */; };
+		8F93321E1BE6F5FB00A4CB7C /* AboutViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F93321D1BE6F5FB00A4CB7C /* AboutViewCell.m */; };
+		8F9332201BE6F61100A4CB7C /* AboutViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F93321F1BE6F61100A4CB7C /* AboutViewCell.xib */; };
 		8F96C2E81BA0651500466A54 /* BYNovelList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F96C2E71BA0651500466A54 /* BYNovelList.m */; };
 		8F96C2EC1BA0657700466A54 /* BYNovel.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F96C2EB1BA0657700466A54 /* BYNovel.m */; };
 		8F96C2F31BA06A4300466A54 /* BYHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F96C2F21BA06A4300466A54 /* BYHttpTool.m */; };
@@ -104,8 +106,6 @@
 		8F389EE11B7AF62000165320 /* ArticleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleViewController.m; sourceTree = "<group>"; };
 		8F389EE31B7AF62F00165320 /* PictureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PictureViewController.h; sourceTree = "<group>"; };
 		8F389EE41B7AF62F00165320 /* PictureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PictureViewController.m; sourceTree = "<group>"; };
-		8F389EE91B7AF66100165320 /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
-		8F389EEA1B7AF66100165320 /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
 		8F389EEC1B7B186A00165320 /* BYCritic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYCritic.h; sourceTree = "<group>"; };
 		8F389EED1B7B186A00165320 /* BYCritic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYCritic.m; sourceTree = "<group>"; };
 		8F389EF21B7B1AA700165320 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
@@ -130,6 +130,11 @@
 		8F389F161B7B2BB400165320 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
 		8F389F171B7B2BB400165320 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
 		8F389F1A1B7B2F1C00165320 /* pchFile.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = pchFile.pch; sourceTree = "<group>"; };
+		8F9332171BE6F04A00A4CB7C /* AboutViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewController.h; sourceTree = "<group>"; };
+		8F9332181BE6F04A00A4CB7C /* AboutViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewController.m; sourceTree = "<group>"; };
+		8F93321C1BE6F5FB00A4CB7C /* AboutViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutViewCell.h; sourceTree = "<group>"; };
+		8F93321D1BE6F5FB00A4CB7C /* AboutViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutViewCell.m; sourceTree = "<group>"; };
+		8F93321F1BE6F61100A4CB7C /* AboutViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AboutViewCell.xib; sourceTree = "<group>"; };
 		8F96C2E61BA0651500466A54 /* BYNovelList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYNovelList.h; sourceTree = "<group>"; };
 		8F96C2E71BA0651500466A54 /* BYNovelList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYNovelList.m; sourceTree = "<group>"; };
 		8F96C2EA1BA0657700466A54 /* BYNovel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYNovel.h; sourceTree = "<group>"; };
@@ -388,6 +393,7 @@
 		8F389EE61B7AF63200165320 /* About */ = {
 			isa = PBXGroup;
 			children = (
+				8F93321B1BE6F42C00A4CB7C /* View */,
 				8F389EE71B7AF64700165320 /* Controller */,
 			);
 			name = About;
@@ -396,8 +402,8 @@
 		8F389EE71B7AF64700165320 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8F389EE91B7AF66100165320 /* AboutViewController.h */,
-				8F389EEA1B7AF66100165320 /* AboutViewController.m */,
+				8F9332171BE6F04A00A4CB7C /* AboutViewController.h */,
+				8F9332181BE6F04A00A4CB7C /* AboutViewController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -473,6 +479,16 @@
 				8F389F171B7B2BB400165320 /* UIView+Extension.m */,
 			);
 			name = Category;
+			sourceTree = "<group>";
+		};
+		8F93321B1BE6F42C00A4CB7C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				8F93321C1BE6F5FB00A4CB7C /* AboutViewCell.h */,
+				8F93321D1BE6F5FB00A4CB7C /* AboutViewCell.m */,
+				8F93321F1BE6F61100A4CB7C /* AboutViewCell.xib */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 		8F96C2E21BA062F700466A54 /* View */ = {
@@ -695,6 +711,7 @@
 			files = (
 				8FFD1CCF1BA45E7C00FCA24E /* UMShareEditViewController.xib in Resources */,
 				8FFD1CCD1BA45E7C00FCA24E /* UMSCommentInputController.xib in Resources */,
+				8F9332201BE6F61100A4CB7C /* AboutViewCell.xib in Resources */,
 				8FE024871B7C7DB90059804C /* avatar.png in Resources */,
 				8FFD1CCC1BA45E7C00FCA24E /* UMSCommentDetailController.xib in Resources */,
 				8FFD1CD11BA45E7C00FCA24E /* UMSLoginViewController.xib in Resources */,
@@ -747,8 +764,8 @@
 				8F389EB21B7AF12100165320 /* AppDelegate.m in Sources */,
 				8FF55B6E1B7F15A80080E54E /* BYAfterBar.m in Sources */,
 				8F96C2EC1BA0657700466A54 /* BYNovel.m in Sources */,
+				8F9332191BE6F04A00A4CB7C /* AboutViewController.m in Sources */,
 				8F389F071B7B1AA700165320 /* AFHTTPSessionManager.m in Sources */,
-				8F389EEB1B7AF66100165320 /* AboutViewController.m in Sources */,
 				8F389F181B7B2BB400165320 /* UIView+Extension.m in Sources */,
 				8FF55B6D1B7F15A80080E54E /* BYShareBar.m in Sources */,
 				8FF55B6A1B7F15A80080E54E /* BYCriticList.m in Sources */,
@@ -769,6 +786,7 @@
 				8F389F081B7B1AA700165320 /* AFNetworkReachabilityManager.m in Sources */,
 				8FF55B741B7F15DA0080E54E /* NSString+Extension.m in Sources */,
 				8F389F0C1B7B1AA700165320 /* AFURLResponseSerialization.m in Sources */,
+				8F93321E1BE6F5FB00A4CB7C /* AboutViewCell.m in Sources */,
 				8F389EAF1B7AF12100165320 /* main.m in Sources */,
 				8FBFE9D81B7C3ABC00CDE9AD /* UIView+WebCacheOperation.m in Sources */,
 				8FBFE9D61B7C3ABC00CDE9AD /* UIImageView+HighlightedWebCache.m in Sources */,
