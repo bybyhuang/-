@@ -16,6 +16,9 @@
 #import "BYAfterBar.h"
 #import "UMSocial.h"
 
+#import "BYDataBaseTool.h"
+
+
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 
@@ -185,7 +188,6 @@
 
 
 
-
 - (void)setCritic:(BYCritic *)critic
 {
     _critic = critic;
@@ -195,10 +197,15 @@
     NSString *url = @"http://api.shigeten.net/api/Critic/GetCriticContent";
     NSMutableDictionary *param = [NSMutableDictionary dictionary];
     param[@"id"] = [NSNumber numberWithInteger:critic.critic_id];
-    [manager GET:url parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
-        
+    
+    //先去数据库中找找是否有该数据
+    NSDictionary *filmData = [BYDataBaseTool readFilmDataWithCriticId:critic.critic_id andBYDataType:BYDataTypeFilm];
+    
+    //需要判断字典里是否有数据
+    if(filmData != nil)
+    {
         //转换成模型
-        BYCriticContent *content = [BYCriticContent criticContentWithDict:responseObject];
+        BYCriticContent *content = [BYCriticContent criticContentWithDict:filmData];
         
         //把模型传给分享栏
         self.shareBar.criticContent = content;
@@ -208,22 +215,22 @@
         
         //通过SDWEBimage获得图片，并设置UIimageView的宽高
         if(content.imageforplay.length>0)
-        [self setImageView:self.FirstImageView url:content.imageforplay];
+            [self setImageView:self.FirstImageView url:content.imageforplay];
         
         if(content.image1.length>0)
-        [self setImageView:self.image1 url:content.image1];
+            [self setImageView:self.image1 url:content.image1];
         
         if(content.image2.length>0)
-        [self setImageView:self.image2 url:content.image2];
+            [self setImageView:self.image2 url:content.image2];
         
         if(content.image3.length>0)
-        [self setImageView:self.image3 url:content.image3];
+            [self setImageView:self.image3 url:content.image3];
         
         if(content.image4.length>0)
-        [self setImageView:self.image4 url:content.image4];
+            [self setImageView:self.image4 url:content.image4];
         
         if(content.image5.length>0)
-        [self setImageView:self.image5 url:content.image5];
+            [self setImageView:self.image5 url:content.image5];
         
         //初始化标题
         CGSize titleSize = [content.title sizeWithTextFont:[UIFont boldSystemFontOfSize:25] Size:CGSizeMake(ScreenWidth - 20, CGFLOAT_MAX)];
@@ -247,10 +254,78 @@
         [self setTextView:self.text3 text:content.text3];
         [self setTextView:self.text4 text:content.text4];
         [self setTextView:self.text5 text:content.text5];
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"获取详细内容出错");
-    }];
+    }else
+    {
+        [manager GET:url parameters:param success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            //转换成模型
+            BYCriticContent *content = [BYCriticContent criticContentWithDict:responseObject];
+            
+            
+            
+#warning 存储到数据库中
+            
+            //存储到数据库
+            [BYDataBaseTool saveDataWithDictonary:responseObject criticId:critic.critic_id andBYDataType:BYDataTypeFilm];
+            
+            
+            
+            
+            //把模型传给分享栏
+            self.shareBar.criticContent = content;
+            
+            //把模型传给作者详情栏
+            self.afterBar.criticContent = content;
+            
+            //通过SDWEBimage获得图片，并设置UIimageView的宽高
+            if(content.imageforplay.length>0)
+                [self setImageView:self.FirstImageView url:content.imageforplay];
+            
+            if(content.image1.length>0)
+                [self setImageView:self.image1 url:content.image1];
+            
+            if(content.image2.length>0)
+                [self setImageView:self.image2 url:content.image2];
+            
+            if(content.image3.length>0)
+                [self setImageView:self.image3 url:content.image3];
+            
+            if(content.image4.length>0)
+                [self setImageView:self.image4 url:content.image4];
+            
+            if(content.image5.length>0)
+                [self setImageView:self.image5 url:content.image5];
+            
+            //初始化标题
+            CGSize titleSize = [content.title sizeWithTextFont:[UIFont boldSystemFontOfSize:25] Size:CGSizeMake(ScreenWidth - 20, CGFLOAT_MAX)];
+            self.title.font = [UIFont boldSystemFontOfSize:25];
+            self.title.text = content.title;
+            self.title.size = titleSize;
+            
+            
+            //设置啊作者的数据
+            NSString *authorString = [NSString stringWithFormat:@"作者:%@  |  阅读量:%ld",content.author,content.times];
+            CGSize authorSize = [authorString sizeWithTextFont:[UIFont systemFontOfSize:12] Size:CGSizeMake(ScreenWidth - 20, CGFLOAT_MAX)];
+            self.authorAndTimes.font= [UIFont systemFontOfSize:12];
+            self.authorAndTimes.textColor = [UIColor grayColor];
+            self.authorAndTimes.text = authorString;
+            self.authorAndTimes.size = authorSize;
+            
+            
+            //设置第一段文章
+            [self setTextView:self.text1 text:content.text1];
+            [self setTextView:self.text2 text:content.text2];
+            [self setTextView:self.text3 text:content.text3];
+            [self setTextView:self.text4 text:content.text4];
+            [self setTextView:self.text5 text:content.text5];
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"获取详细内容出错");
+        }];
+    }
+    
+    
+    
 }
 
 /**

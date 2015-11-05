@@ -15,6 +15,7 @@
 #import "NSString+Extension.h"
 #import "BYAfterBar.h"
 
+#import "BYDataBaseTool.h"
 
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -136,9 +137,13 @@
     NSMutableDictionary *dict = [NSMutableDictionary dictionary];
     dict[@"id"] = [NSNumber numberWithInteger:picture.novel_id];
     
-    [BYHttpTool GET:urlString parameters:dict success:^(id response) {
+    //先判断图片表中是否有该id的数据
+    NSDictionary *pictureData = [BYDataBaseTool readFilmDataWithCriticId:picture.novel_id andBYDataType:BYDataTypePicture];
+    if(pictureData != nil)
+    {
+        BYPictureContent *pictureContent = [BYPictureContent pictureContentWithDict:pictureData];
         
-        BYPictureContent *pictureContent = [BYPictureContent pictureContentWithDict:response];
+
         
         //把时间传给分享栏
         self.shareBar.publishtime = pictureContent.publishtime;
@@ -162,12 +167,47 @@
         CGSize authorSize = [self.authorLabel sizeThatFits:CGSizeMake(ScreenWidth - 30, MAXFLOAT)];
         self.authorLabel.size = authorSize;
         
-//        [self setNeedsLayout];
-        
-    } failure:^(NSError *error) {
-        
-    }];
-}
+        //        [self setNeedsLayout];
+    }else
+    {
+        [BYHttpTool GET:urlString parameters:dict success:^(id response) {
+            
+            BYPictureContent *pictureContent = [BYPictureContent pictureContentWithDict:response];
+            
+#pragma mark - 存到数据库
+            [BYDataBaseTool saveDataWithDictonary:response criticId:picture.novel_id andBYDataType:BYDataTypePicture];
+            
+            //把时间传给分享栏
+            self.shareBar.publishtime = pictureContent.publishtime;
+            
+            //把作者，和作者详情传给afterBar
+            self.afterBar.authorString = pictureContent.author;
+            self.afterBar.authorBriefString = pictureContent.authorbrief;
+            
+            [self setImageView:self.imageView url:pictureContent.image1];
+            
+            
+            self.introduction.text = pictureContent.text1;
+            self.introduction.font = [UIFont systemFontOfSize:13];
+            CGSize introductionSize = [self.introduction sizeThatFits:CGSizeMake(ScreenWidth - 30, MAXFLOAT)];
+            self.introduction.size = introductionSize;
+            
+            //把作者赋值给authorLabel
+            NSLog(@"text2=%@",pictureContent.text2);
+            self.authorLabel.text = pictureContent.text2;
+            self.authorLabel.font = [UIFont systemFontOfSize:13];
+            CGSize authorSize = [self.authorLabel sizeThatFits:CGSizeMake(ScreenWidth - 30, MAXFLOAT)];
+            self.authorLabel.size = authorSize;
+            
+            //        [self setNeedsLayout];
+            
+        } failure:^(NSError *error) {
+            
+        }];
+
+    }
+    
+    }
 
 
 /**

@@ -55,6 +55,7 @@
         
         self.listView.critics = self.critics;
         
+        //把模型存到
         
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {

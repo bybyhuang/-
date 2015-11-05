@@ -13,6 +13,8 @@
 #import "NSString+Extension.h"
 #import "BYShareBar.h"
 #import "BYAfterBar.h"
+#import "BYDataBaseTool.h"
+
 
 #define ScreenWidth [UIScreen mainScreen].bounds.size.width
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
@@ -193,10 +195,12 @@
     NSMutableDictionary *parame = [NSMutableDictionary dictionary];
     parame[@"id"] = [NSNumber numberWithInteger:novel.novel_id];
     
+    //先在数据库中查找是否有相同的数据
+    NSDictionary *novelData = [BYDataBaseTool readFilmDataWithCriticId:novel.novel_id andBYDataType:BYDataTypeArticle];
     
-    [BYHttpTool GET:urlString parameters:parame success:^(id response) {
-        
-        BYNovelContent *novelContent = [BYNovelContent novelContentWithDict:response];
+    if(novelData != nil)
+    {
+        BYNovelContent *novelContent = [BYNovelContent novelContentWithDict:novelData];
         self.novelContent = novelContent;
         
         
@@ -272,7 +276,7 @@
         
         
         //设置文章的具体内容
-//        NSLog(@"%@",novelContent.text);
+        //        NSLog(@"%@",novelContent.text);
         self.textView.text = novelContent.text;
         self.textView.font = [UIFont systemFontOfSize:18];
         self.textView.textColor = [UIColor blackColor];
@@ -284,10 +288,109 @@
         
         //重新进行布局
         [self setNeedsLayout];
-        
-    } failure:^(NSError *error) {
-        
-    }];
+    }else
+    {
+        [BYHttpTool GET:urlString parameters:parame success:^(id response) {
+            
+            BYNovelContent *novelContent = [BYNovelContent novelContentWithDict:response];
+            self.novelContent = novelContent;
+            
+#pragma mark - 把新的文章数据存储到数据库中
+            [BYDataBaseTool saveDataWithDictonary:response criticId:novel.novel_id andBYDataType:BYDataTypeArticle];
+            
+            
+            //把发行日期传给分享栏
+            self.shareBar.publishtime = novelContent.publishtime;
+            
+            //把文章内容传给作者详情栏
+            self.afterBar.novelContent = novelContent;
+            
+            
+            //设置标题的文字和宽高
+            self.title.text = novelContent.title;
+            self.title.font = [UIFont boldSystemFontOfSize:25];
+            //根据文字来获取文字的宽高
+            CGSize titleSize = [novelContent.title sizeWithTextFont:self.title.font Size:CGSizeMake(ScreenWidth - 30, MAXFLOAT)];
+            self.title.size = titleSize;
+            
+            
+            
+            //设置作者和阅读量
+            NSString *authorAndTimes = [NSString stringWithFormat:@"作者:%@ | 阅读量:%ld",novelContent.author,novelContent.times];
+            self.authorAndTimes.text = authorAndTimes;
+            self.authorAndTimes.font = [UIFont systemFontOfSize:12] ;
+            CGSize authorSize = [authorAndTimes sizeWithTextFont:self.authorAndTimes.font Size:CGSizeMake(ScreenWidth - 30, MAXFLOAT)];
+            self.authorAndTimes.size = authorSize;
+            self.authorAndTimes.textColor = [UIColor grayColor];
+            
+            
+            
+            //设置summary的宽高
+            
+            
+            
+            
+            //把引号放进summary的view中
+            UIImageView *summaryRight= [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"summary_right"]];
+            [self.summaryView addSubview:summaryRight];
+            
+            UIImageView *summaryLeft = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"summary_left"]];
+            [self.summaryView addSubview:summaryLeft];
+            
+            
+            //设置summary详情
+            void(^setsummaryView)()=^()
+            {
+                //设置斜体
+                CGAffineTransform matrix = CGAffineTransformMake(1, 0, tanf(15 * (CGFloat)M_PI / 180), 1, 0, 0);
+                
+                UIFontDescriptor *desc =[UIFontDescriptor fontDescriptorWithName:[UIFont systemFontOfSize:15].fontName matrix:matrix];
+                UIFont *font = [UIFont fontWithDescriptor:desc size:15];
+                //设置斜体
+                
+                
+                UILabel *summaryText = [[UILabel alloc] init];
+                //设置label的颜色
+                summaryText.textColor = RGB(50, 50, 50);
+                summaryText.numberOfLines = 0;
+                [self.summaryView addSubview:summaryText];
+                summaryText.text = novelContent.summary;
+                summaryText.font = font;
+                //获取textView的宽高
+                CGSize summaryTextSize = [summaryText sizeThatFits:CGSizeMake(ScreenWidth - 30 -2*summaryLeft.width, MAXFLOAT)];
+                
+                
+                //通过summaryText的宽高来设置summaryView的Size
+                CGSize summarySize = CGSizeMake(ScreenWidth- 30, summaryTextSize.height + 2*summaryLeft.height);
+                self.summaryView.size = summarySize;
+                
+                summaryText.size = summaryTextSize;
+            };
+            
+            setsummaryView();
+            
+            
+            //设置文章的具体内容
+            //        NSLog(@"%@",novelContent.text);
+            self.textView.text = novelContent.text;
+            self.textView.font = [UIFont systemFontOfSize:18];
+            self.textView.textColor = [UIColor blackColor];
+            CGSize textViewSize = [self.textView sizeThatFits:CGSizeMake(ScreenWidth - 30, MAXFLOAT)];
+            
+            self.textView.size = textViewSize;
+            
+            
+            
+            //重新进行布局
+            [self setNeedsLayout];
+            
+        } failure:^(NSError *error) {
+            
+        }];
+    }
+    
+    
+    
     
 }
 

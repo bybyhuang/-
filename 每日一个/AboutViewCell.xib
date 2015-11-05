@@ -28,7 +28,7 @@
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IqB-JK-hRu">
-                        <rect key="frame" x="81" y="11" width="37" height="40"/>
+                        <rect key="frame" x="61" y="11" width="37" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
@@ -38,7 +38,7 @@
                     <constraint firstItem="gef-37-h1j" firstAttribute="top" secondItem="u1o-u0-xfN" secondAttribute="topMargin" constant="3" id="0pX-d2-gbt"/>
                     <constraint firstItem="gef-37-h1j" firstAttribute="trailing" secondItem="u1o-u0-xfN" secondAttribute="trailingMargin" id="5ky-tJ-YdO"/>
                     <constraint firstItem="IqB-JK-hRu" firstAttribute="top" secondItem="u1o-u0-xfN" secondAttribute="topMargin" constant="3" id="GsR-I3-Ih4"/>
-                    <constraint firstItem="IqB-JK-hRu" firstAttribute="leading" secondItem="BIt-Lc-yXE" secondAttribute="trailing" constant="28" id="Jcr-u9-CcU"/>
+                    <constraint firstItem="IqB-JK-hRu" firstAttribute="leading" secondItem="BIt-Lc-yXE" secondAttribute="trailing" constant="8" id="Jcr-u9-CcU"/>
                     <constraint firstItem="BIt-Lc-yXE" firstAttribute="leading" secondItem="u1o-u0-xfN" secondAttribute="leadingMargin" id="KKR-3o-9x7"/>
                     <constraint firstItem="gef-37-h1j" firstAttribute="trailing" secondItem="u1o-u0-xfN" secondAttribute="trailingMargin" id="PqP-Tw-W3d"/>
                     <constraint firstItem="BIt-Lc-yXE" firstAttribute="top" secondItem="u1o-u0-xfN" secondAttribute="topMargin" constant="3" id="QeC-jv-ac9"/>
