@@ -91,9 +91,9 @@
 {
     NSInteger currentPage = ((scrollView.contentOffset.x +self.scrollView.width /2 )/self.scrollView.width);
     
-
+    NSLog(@"%ld",self.scrollView.subviews.count);
     //根据页数来赋值模型
-    if(self.scrollView.subviews.count>0)
+    if(self.scrollView.subviews.count>0 && currentPage>=0)
     {
         BYFilmView *filmView = self.scrollView.subviews[currentPage];
         if(filmView.critic == nil)

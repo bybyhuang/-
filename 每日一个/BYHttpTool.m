@@ -8,6 +8,7 @@
 
 #import "BYHttpTool.h"
 #import "AFNetworking.h"
+#import "Reachability.h"
 
 @implementation BYHttpTool
 
@@ -28,5 +29,11 @@
     }];
 }
 
+
++ (BOOL)currentHttpStatus
+{
+    Reachability *reach = [Reachability reachabilityForInternetConnection];
+    return [reach currentReachabilityStatus] == NotReachable;
+}
 
 @end

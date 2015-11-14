@@ -10,7 +10,7 @@
 #import "BYNovelList.h"
 #import "BYNovel.h"
 #import "BYHttpTool.h"
-
+#import "BYDataBaseTool.h"
 
 @interface ArticleViewController ()
 
@@ -43,24 +43,41 @@
     [self setUpNovelList];
     
     
-    NSString *urlString = [NSString stringWithFormat:@"http://api.shigeten.net/api/Novel/GetNovelList"];
-
-    
-    [BYHttpTool GET:urlString parameters:nil success:^(id response) {
+    if([BYHttpTool currentHttpStatus])
+    {
+        //就去数据库中取最大的10个critic
         
-        for (NSDictionary *dict in response[@"result"]) {
+        NSArray *array = [BYDataBaseTool readMaxTenWithBYDataType:BYDataTypeArticle];
+        for (NSDictionary *dict in array) {
             
             BYNovel *novel = [BYNovel novelWithDict:dict];
             [self.novelArray addObject:novel];
+            
         }
-        
-        //把获取到的文章数组传给NovelList
         self.novelList.novels = self.novelArray;
+    }else
+    {
+        NSString *urlString = [NSString stringWithFormat:@"http://api.shigeten.net/api/Novel/GetNovelList"];
         
-    } failure:^(NSError *error) {
-       
-        NSLog(@"%@",error);
-    }];
+        
+        [BYHttpTool GET:urlString parameters:nil success:^(id response) {
+            
+            for (NSDictionary *dict in response[@"result"]) {
+                
+                BYNovel *novel = [BYNovel novelWithDict:dict];
+                [self.novelArray addObject:novel];
+            }
+            
+            //把获取到的文章数组传给NovelList
+            self.novelList.novels = self.novelArray;
+            
+        } failure:^(NSError *error) {
+            
+            NSLog(@"%@",error);
+        }];
+    }
+    
+    
    
     
     

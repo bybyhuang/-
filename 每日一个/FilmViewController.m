@@ -10,12 +10,20 @@
 #import "AFNetworking.h"
 #import "BYCritic.h"
 #import "BYCriticList.h"
+#import "Reachability.h"
+#import "BYDataBaseTool.h"
+#import "BYHttpTool.h"
 
 @interface FilmViewController ()
 
 @property (nonatomic,strong)NSMutableArray *critics;
 
 @property (nonatomic,weak)BYCriticList *listView;
+
+/**
+ *  当离线的时候用这个
+ */
+@property (nonatomic,weak)NSArray *criticIdArray;
 @end
 
 @implementation FilmViewController
@@ -40,27 +48,51 @@
     //初始化listView
     [self setUpListView];
     
-    AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
-    NSString *url = @"http://api.shigeten.net/api/Critic/GetCriticList";
+#warning 判断网络状态
+//    Reachability *reach = [Reachability reachabilityForInternetConnection];
     
-    [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+    
+    
+    //如果当前无网络连接
+    if([BYHttpTool currentHttpStatus])
+    {
+        //就去数据库中取最大的10个critic
         
-//        NSLog(@"%@",responseObject);
-        //需要result数组的中所有字典，转换成模型再传到数组中
-        for(NSDictionary *dict in responseObject[@"result"])
-        {
+        NSArray *array = [BYDataBaseTool readMaxTenWithBYDataType:BYDataTypeFilm];
+        for (NSDictionary *dict in array) {
+            
             BYCritic *critic = [BYCritic criticWithDict:dict];
             [self.critics addObject:critic];
+            
         }
-        
         self.listView.critics = self.critics;
+    }else
+    {
+        AFHTTPRequestOperationManager *manager = [AFHTTPRequestOperationManager manager];
+        NSString *url = @"http://api.shigeten.net/api/Critic/GetCriticList";
         
-        //把模型存到
-        
-        
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-        NSLog(@"获取出错");
-    }];
+        [manager GET:url parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
+            
+            //        NSLog(@"%@",responseObject);
+            //需要result数组的中所有字典，转换成模型再传到数组中
+            for(NSDictionary *dict in responseObject[@"result"])
+            {
+                BYCritic *critic = [BYCritic criticWithDict:dict];
+                [self.critics addObject:critic];
+            }
+            
+            self.listView.critics = self.critics;
+            
+            //把模型存到
+            
+            
+        } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+            NSLog(@"获取出错");
+        }];
+    }
+    
+    
+    
     
 
 }

@@ -11,7 +11,6 @@
 #import "ArticleViewController.h"
 #import "PictureViewController.h"
 #import "AboutViewController.h"
-#import "SimpleTextViewController.h"
 
 @interface BYTabBarController ()
 
@@ -25,7 +24,7 @@
     FilmViewController *filmController = [[FilmViewController alloc] init];
     ArticleViewController *articleController = [[ArticleViewController alloc] init];
     PictureViewController *pictureController = [[PictureViewController alloc] init];
-    SimpleTextViewController *aboutController = [[AboutViewController alloc] init];
+    AboutViewController  *aboutController = [[AboutViewController alloc] init];
     
     
 //    articleController.view.backgroundColor = [UIColor whiteColor];

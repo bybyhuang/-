@@ -32,4 +32,6 @@ typedef enum
 
 +(NSDictionary *)readFilmDataWithCriticId:(NSInteger)criticId andBYDataType:(BYDataType)dataType;
 
++(NSArray *)readMaxTenWithBYDataType:(BYDataType)dataType;
+
 @end

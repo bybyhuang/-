@@ -10,6 +10,7 @@
 #import "BYHttpTool.h"
 #import "BYNovel.h"
 #import "BYPictureList.h"
+#import "BYDataBaseTool.h"
 
 @interface PictureViewController ()
 
@@ -43,21 +44,38 @@
     //初始化图片列表
     [self setUpPictureList];
     
-    //http://api.shigeten.net/api/Diagram/GetDiagramList
-    //http://api.shigeten.net/api/Diagram/GetDiagramContent?id=10260
-    NSString *urlString = @"http://api.shigeten.net/api/Diagram/GetDiagramList";
-    [BYHttpTool GET:urlString parameters:nil success:^(id response) {
-        for (NSDictionary *dict in response[@"result"]) {
+    
+    if([BYHttpTool currentHttpStatus])
+    {
+        NSArray *array = [BYDataBaseTool readMaxTenWithBYDataType:BYDataTypePicture];
+        for (NSDictionary *dict in array) {
             BYNovel *novel = [BYNovel novelWithDict:dict];
             [self.pictureArray addObject:novel];
             
         }
-        
         self.pictureList.pictureArray = self.pictureArray;
         
-    } failure:^(NSError *error) {
-        NSLog(@"获取出错");
-    }];
+    }else
+    {
+        //http://api.shigeten.net/api/Diagram/GetDiagramList
+        //http://api.shigeten.net/api/Diagram/GetDiagramContent?id=10260
+        NSString *urlString = @"http://api.shigeten.net/api/Diagram/GetDiagramList";
+        [BYHttpTool GET:urlString parameters:nil success:^(id response) {
+            for (NSDictionary *dict in response[@"result"]) {
+                BYNovel *novel = [BYNovel novelWithDict:dict];
+                [self.pictureArray addObject:novel];
+                
+            }
+            
+            self.pictureList.pictureArray = self.pictureArray;
+            
+        } failure:^(NSError *error) {
+            NSLog(@"获取出错");
+        }];
+    }
+    
+    
+    
     
 }
 

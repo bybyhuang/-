@@ -84,28 +84,7 @@ static FMDatabase *db;
 
 
 
-+ (NSDictionary *)readFilmDataWithCriticId:(NSInteger)criticId
-{
-    NSString *sql = [NSString stringWithFormat:@"SELECT *FROM film_statuse WHERE critic_id = %ld;",criticId];
-    
-    //取出来的数据是一个结果集
-    FMResultSet *resultSet = [db executeQuery:sql];
-    
-    //遍历结果集
-    while (resultSet.next) {
-        //先取出data的二进制数据
-        NSData *data = [resultSet objectForColumnName:@"data"];
-        
-        //把二进制转化成字典,反归档
-        NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-        
-        
-        return dict;
-    }
-    
-    
-    return nil;
-}
+
 
 + (NSDictionary *)readFilmDataWithCriticId:(NSInteger)criticId andBYDataType:(BYDataType)dataType
 {
@@ -148,5 +127,45 @@ static FMDatabase *db;
     
 }
 
+
++ (NSArray *)readMaxTenWithBYDataType:(BYDataType)dataType
+{
+    NSString *sql;
+    //需要先进行判断存到哪个表中去
+    switch (dataType) {
+        case BYDataTypeFilm:
+            sql = [NSString stringWithFormat:@"SELECT *FROM film_statuse  desc limit 0,10;"];
+            break;
+        case BYDataTypeArticle:
+            sql = [NSString stringWithFormat:@"SELECT *FROM article_statuse desc limit 0,10 ;"];
+            break;
+        case BYDataTypePicture:
+            sql = [NSString stringWithFormat:@"SELECT *FROM picture_statuse desc limit 0,10;"];
+            break;
+            
+            
+        default:
+            break;
+    }
+    
+    //取出来的数据是一个结果集
+    FMResultSet *resultSet = [db executeQuery:sql];
+    
+    NSMutableArray *array = [NSMutableArray array];
+    //遍历结果集
+    while (resultSet.next) {
+        //先取出data的二进制数据
+        NSData *data = [resultSet objectForColumnName:@"data"];
+        
+        //把二进制转化成字典,反归档
+        NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+        
+        
+        [array addObject:dict];
+    }
+    
+    
+    return array;
+}
 
 @end

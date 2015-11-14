@@ -79,7 +79,7 @@
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     NSInteger currentPage = (scrollView.contentOffset.x +scrollView.width / 2) /scrollView.width;
-    if(scrollView.subviews.count>0)
+    if(scrollView.subviews.count>0 && currentPage >0)
     {
         //判断当前切换的NovelView的novel是否为空
         BYNovelView *novelView = scrollView.subviews[currentPage];

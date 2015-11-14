@@ -42,6 +42,8 @@
 		8F96C2F31BA06A4300466A54 /* BYHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F96C2F21BA06A4300466A54 /* BYHttpTool.m */; };
 		8F96C2F61BA07D2100466A54 /* BYNovelView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F96C2F51BA07D2100466A54 /* BYNovelView.m */; };
 		8FA7B5FB1BA31FF2002AC883 /* BYPictureList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FA7B5FA1BA31FF2002AC883 /* BYPictureList.m */; };
+		8FB3C70B1BEC3F6A0069BEF4 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB3C70A1BEC3F6A0069BEF4 /* Reachability.m */; };
+		8FB3C70E1BEC71C10069BEF4 /* AboutController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FB3C70D1BEC71C10069BEF4 /* AboutController.m */; };
 		8FBFE9C91B7C3ABC00CDE9AD /* MKAnnotationView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBFE9A91B7C3ABC00CDE9AD /* MKAnnotationView+WebCache.m */; };
 		8FBFE9CA1B7C3ABC00CDE9AD /* NSData+ImageContentType.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBFE9AB1B7C3ABC00CDE9AD /* NSData+ImageContentType.m */; };
 		8FBFE9CB1B7C3ABC00CDE9AD /* SDImageCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBFE9AD1B7C3ABC00CDE9AD /* SDImageCache.m */; };
@@ -59,7 +61,6 @@
 		8FBFE9D71B7C3ABC00CDE9AD /* UIImageView+WebCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBFE9C61B7C3ABC00CDE9AD /* UIImageView+WebCache.m */; };
 		8FBFE9D81B7C3ABC00CDE9AD /* UIView+WebCacheOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FBFE9C81B7C3ABC00CDE9AD /* UIView+WebCacheOperation.m */; };
 		8FBFE9F61B7C7A5C00CDE9AD /* libicucore.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FBFE9F51B7C7A5C00CDE9AD /* libicucore.dylib */; };
-		8FE024851B7C7B560059804C /* SimpleTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FE024841B7C7B560059804C /* SimpleTextViewController.m */; };
 		8FE024871B7C7DB90059804C /* avatar.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FE024861B7C7DB90059804C /* avatar.png */; };
 		8FF55B6A1B7F15A80080E54E /* BYCriticList.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF55B611B7F15A80080E54E /* BYCriticList.m */; };
 		8FF55B6C1B7F15A80080E54E /* BYFilmView.m in Sources */ = {isa = PBXBuildFile; fileRef = 8FF55B651B7F15A80080E54E /* BYFilmView.m */; };
@@ -166,6 +167,10 @@
 		8F96C2F51BA07D2100466A54 /* BYNovelView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYNovelView.m; sourceTree = "<group>"; };
 		8FA7B5F91BA31FF2002AC883 /* BYPictureList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYPictureList.h; sourceTree = "<group>"; };
 		8FA7B5FA1BA31FF2002AC883 /* BYPictureList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYPictureList.m; sourceTree = "<group>"; };
+		8FB3C7091BEC3F6A0069BEF4 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		8FB3C70A1BEC3F6A0069BEF4 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		8FB3C70C1BEC71C10069BEF4 /* AboutController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutController.h; sourceTree = "<group>"; };
+		8FB3C70D1BEC71C10069BEF4 /* AboutController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutController.m; sourceTree = "<group>"; };
 		8FBFE9A81B7C3ABC00CDE9AD /* MKAnnotationView+WebCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "MKAnnotationView+WebCache.h"; sourceTree = "<group>"; };
 		8FBFE9A91B7C3ABC00CDE9AD /* MKAnnotationView+WebCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "MKAnnotationView+WebCache.m"; sourceTree = "<group>"; };
 		8FBFE9AA1B7C3ABC00CDE9AD /* NSData+ImageContentType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+ImageContentType.h"; sourceTree = "<group>"; };
@@ -200,8 +205,6 @@
 		8FBFE9C71B7C3ABC00CDE9AD /* UIView+WebCacheOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+WebCacheOperation.h"; sourceTree = "<group>"; };
 		8FBFE9C81B7C3ABC00CDE9AD /* UIView+WebCacheOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WebCacheOperation.m"; sourceTree = "<group>"; };
 		8FBFE9F51B7C7A5C00CDE9AD /* libicucore.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libicucore.dylib; path = usr/lib/libicucore.dylib; sourceTree = SDKROOT; };
-		8FE024831B7C7B560059804C /* SimpleTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimpleTextViewController.h; sourceTree = "<group>"; };
-		8FE024841B7C7B560059804C /* SimpleTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimpleTextViewController.m; sourceTree = "<group>"; };
 		8FE024861B7C7DB90059804C /* avatar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = avatar.png; sourceTree = "<group>"; };
 		8FF55B601B7F15A80080E54E /* BYCriticList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BYCriticList.h; sourceTree = "<group>"; };
 		8FF55B611B7F15A80080E54E /* BYCriticList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BYCriticList.m; sourceTree = "<group>"; };
@@ -357,8 +360,6 @@
 		8F389ED71B7AF4EB00165320 /* FilmReview */ = {
 			isa = PBXGroup;
 			children = (
-				8FE024831B7C7B560059804C /* SimpleTextViewController.h */,
-				8FE024841B7C7B560059804C /* SimpleTextViewController.m */,
 				8F389F111B7B239200165320 /* View */,
 				8F389EEF1B7B186E00165320 /* Model */,
 				8F389ED81B7AF53C00165320 /* Controller */,
@@ -427,6 +428,8 @@
 			children = (
 				8F9332171BE6F04A00A4CB7C /* AboutViewController.h */,
 				8F9332181BE6F04A00A4CB7C /* AboutViewController.m */,
+				8FB3C70C1BEC71C10069BEF4 /* AboutController.h */,
+				8FB3C70D1BEC71C10069BEF4 /* AboutController.m */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -445,6 +448,7 @@
 		8F389EF01B7B1A6000165320 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				8FB3C7081BEC3F560069BEF4 /* Reachability */,
 				8F9332211BE7ABF600A4CB7C /* fmdb */,
 				8FFD1CAD1BA45E7C00FCA24E /* UMSocial_Sdk_4.2.3 */,
 				8FBFE9A71B7C3ABC00CDE9AD /* SDWebImage */,
@@ -584,6 +588,15 @@
 				8FFD1CAB1BA3B70E00FCA24E /* BYPictureView.m */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		8FB3C7081BEC3F560069BEF4 /* Reachability */ = {
+			isa = PBXGroup;
+			children = (
+				8FB3C7091BEC3F6A0069BEF4 /* Reachability.h */,
+				8FB3C70A1BEC3F6A0069BEF4 /* Reachability.m */,
+			);
+			name = Reachability;
 			sourceTree = "<group>";
 		};
 		8FBFE9A71B7C3ABC00CDE9AD /* SDWebImage */ = {
@@ -794,13 +807,13 @@
 				8F389EE21B7AF62000165320 /* ArticleViewController.m in Sources */,
 				8F96C2F61BA07D2100466A54 /* BYNovelView.m in Sources */,
 				8F389F061B7B1AA700165320 /* AFHTTPRequestOperationManager.m in Sources */,
+				8FB3C70B1BEC3F6A0069BEF4 /* Reachability.m in Sources */,
 				8F96C2F31BA06A4300466A54 /* BYHttpTool.m in Sources */,
 				8F389EE51B7AF62F00165320 /* PictureViewController.m in Sources */,
 				8FBFE9CC1B7C3ABC00CDE9AD /* SDWebImageCompat.m in Sources */,
 				8FBFE9CB1B7C3ABC00CDE9AD /* SDImageCache.m in Sources */,
 				8FBFE9D41B7C3ABC00CDE9AD /* UIImage+MultiFormat.m in Sources */,
 				8FBFE9D31B7C3ABC00CDE9AD /* UIImage+GIF.m in Sources */,
-				8FE024851B7C7B560059804C /* SimpleTextViewController.m in Sources */,
 				8FFD1CA91BA3B29B00FCA24E /* BYPictureContent.m in Sources */,
 				8FBFE9CE1B7C3ABC00CDE9AD /* SDWebImageDownloader.m in Sources */,
 				8FBFE9D71B7C3ABC00CDE9AD /* UIImageView+WebCache.m in Sources */,
@@ -821,6 +834,7 @@
 				8FBFE9CF1B7C3ABC00CDE9AD /* SDWebImageDownloaderOperation.m in Sources */,
 				8F389F091B7B1AA700165320 /* AFSecurityPolicy.m in Sources */,
 				8FA7B5FB1BA31FF2002AC883 /* BYPictureList.m in Sources */,
+				8FB3C70E1BEC71C10069BEF4 /* AboutController.m in Sources */,
 				8FFE72281BA10C9500B85727 /* BYNovelContent.m in Sources */,
 				8F389EEE1B7B186A00165320 /* BYCritic.m in Sources */,
 				8FBFE9D11B7C3ABC00CDE9AD /* SDWebImagePrefetcher.m in Sources */,

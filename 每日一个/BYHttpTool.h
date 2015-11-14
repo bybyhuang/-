@@ -8,8 +8,18 @@
 
 #import <Foundation/Foundation.h>
 
+
 @interface BYHttpTool : NSObject
 
 + (void)GET:(NSString *)URLString parameters:(NSDictionary *)parameters success:(void(^)(id response))success failure:(void(^)(NSError *error))failure ;
+
+
+/**
+ *  判断当前是否有网络
+ *
+ *  @return <#return value description#>
+ */
++ (BOOL)currentHttpStatus;
+
 
 @end

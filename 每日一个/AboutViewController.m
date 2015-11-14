@@ -8,6 +8,7 @@
 
 #import "AboutViewController.h"
 #import "AboutViewCell.h"
+#import "AboutController.h"
 
 @interface AboutViewController ()
 
@@ -83,7 +84,7 @@
 {
     switch (indexPath.row) {
         case 0:
-            
+//            [self presentViewController:[[AboutController alloc] init] animated:YES completion:nil ];
             break;
         case 1:
             
